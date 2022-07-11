@@ -1,6 +1,6 @@
 
 import React from 'react';
-import 'antd/dist/antd.less';
+import 'antd/dist/antd.css';
 import { Input , Button} from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import './navbar.css'

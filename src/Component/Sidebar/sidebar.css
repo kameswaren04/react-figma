@@ -26,19 +26,23 @@
 
 }
 .bottom{
-    margin-left: 10px;
-    margin-top:80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:80px;
     
     
 }
 .middle img{
     height: 40px;
-    width: 50px;
+    width: 47px;
 
 }
 .bottom img{
-    height: 50px;
-    width: 50px;
+  margin-bottom: 18px;
+    height: 40px;
+    width: 40px;
+    /* align-items: center; */
 
 }
 
@@ -49,100 +53,7 @@
   column-gap: 0ch;
 }
 
-
-/*
-.SideBar {
-    height: 100vh;
-    background: #ffffff;
-  }
-  .ant-layout-sider,
-  .ant-layout-sider-dark,
-  .SideBar {
-    flex: 0 0 200px !important;
-    max-width: 70px !important;
-    min-width: 50px !important;
-    width: 200px !important;
-  }
-  .Logo img {
-    width: 70px;
-    height: 70px;
-  }
-  .midicon {
-    margin-top: 120px;
-  }
-  .midicon img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 10px;
-  }
-  .ant-menu-item,
-  .ant-menu-item-only-child {
-    padding-left: 10px !important;
-  }
-  .ant-menu-item,
-  .ant-menu-item-only-child,
-  .midicon3 {
-    padding-left: 10px !important;
-  }
-  .boticon {
-    width: 50px;
-    height: 50px;
-    margin: 70px 15px;
-  }
-  .boticon img {
-    margin-top: 20px;
-  }
-  .ant-layout-header {
-    background: lightblue !important;
-  }
-  .headright{
-    margin-left: 150px;
-    border-radius: 5px;
-  }
-  .ant-layout {
-    background: lightblue;
-  }
-  .lefthead {
-    font-weight: 700;
-    font-size: 28px;
-    margin-left: 20px;
-  }
-  .ant-btn-primary {
-    /* width: 150px !important; */
-    /* float: right; */
-    
-    /* margin-left: 40px; */
-  /*
-  .midhead {
-    margin-top: 10px;
-    width: 50px !important;
-  }
-  .ant-input-affix-wrapper {
-    margin-left: 120px !important;
-    width: 40% !important;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: #2B78D4;
-    color: #2B78D4;
-  }
-  /* .midright{
-    float: right;
-  } */
-  /* .midhead Input{
-    border-radius: 5px;
-    border-style: solid;
-    color: #002f68;
-  } */
-
-  /*
-  .contentGrid{
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    row-gap: 0;
-    column-gap: 0ch;
-  }
-  */
-  .card1 {
+  .maincard {
     border-radius: 20px;
   }
   .ant-card-body {
@@ -171,10 +82,11 @@
     color: #5c83b1;
     font-weight: 400;
   }
-  .gutter-box {
+  /* .gutter-box {
     padding: 8px 0;
     background: #00a0e9;
-  }
+  } */
+ 
   .ant-layout-header {
     height: 53px !important;
     padding: 0 21px !important;
@@ -190,11 +102,39 @@
   .ant-menu-inline.ant-menu-root .ant-menu-item, .ant-menu-inline.ant-menu-root .ant-menu-submenu-title{
     align-items: normal !important;
   }
-  /* .card2{
+  .card2{
     display: none;
+    
   }
-  .site-card-border-less-wrapper{
+  .maincard:hover{
+    
+    border: 1px solid #00a0e9;
+    border-radius: 20px;
+
+  }
+  .card1{
     display: block;
-  } */
-  
+    
+    
+  }
+  .card2btn{
+    width: 120px;
+    height: 35px;
+    background-color:rgb(65, 119, 191);
+    color: white;
+    border-radius: 7px;
+    position: relative;
+    left: 150px;
+    bottom: 5px;
+    font-size: 16px;
+
+  }
+  .card2para{
+    letter-spacing: 0.8px;
+    font-weight: 400;
+    font-size: 15px;
+    color: black;
+    margin-left: 5px;
+
+  }
   
