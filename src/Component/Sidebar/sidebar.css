@@ -9,11 +9,11 @@
     background: white !important;
 }
 .ant-layout {
-  background:  #F4F9FF;
+  background:  #F4F9FF !important;
 }
 .sidebar{
     
-    height: 100vh;
+    height: 100%;
 }
 .logo img{
     height: 70px !important;
@@ -47,10 +47,13 @@
 }
 
 .contentGrid{
+  
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  row-gap: 0;
-  column-gap: 0ch;
+  row-gap: 20px;
+  column-gap: 10px !important ;
+  margin-left: 30px;
+  margin-top: 40px;
 }
 
   .maincard {
@@ -92,8 +95,11 @@
     padding: 0 21px !important;
   }
   .ant-row{
-    height: 150px !important;
+    /* height: 150px !important; */
     margin:  0 !important;
+  }
+  .ant-layout-content{
+    margin: 15px 0 !important;
   }
   
   .ant-menu-vertical, .ant-menu-item:not(:last-child), .ant-menu-vertical-left, .ant-menu-item:not(:last-child), .ant-menu-vertical-right, .ant-menu-item:not(:last-child), .ant-menu-inline, .ant-menu-item:not(:last-child){
@@ -102,6 +108,9 @@
   .ant-menu-inline.ant-menu-root .ant-menu-item, .ant-menu-inline.ant-menu-root .ant-menu-submenu-title{
     align-items: normal !important;
   }
+  /* .site-layout-sub-header-background{
+    
+  } */
   .card2{
     display: none;
     
@@ -117,17 +126,31 @@
     
     
   }
-  .card2btn{
+  .card2btn2{
     width: 120px;
-    height: 35px;
+    height: 30px;
+    margin-bottom: 5px;
     background-color:rgb(65, 119, 191);
     color: white;
+    border: 0;
     border-radius: 7px;
     position: relative;
-    left: 150px;
+    left: 70px;
     bottom: 5px;
     font-size: 16px;
 
+  }
+  .card2btn1{
+    width: 80px;
+    height: 30px;
+    position: relative;
+    bottom: 5px;
+    left: 60px;
+    font-weight: 600;
+    border:1px solid skyblue;
+    background-color:white;
+    color: rgb(65, 119, 191);
+    border-radius: 7px;
   }
   .card2para{
     letter-spacing: 0.8px;

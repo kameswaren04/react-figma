@@ -1,7 +1,11 @@
 .topnav{
+    position: sticky;
+    top: 0;
+    z-index: 999;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    
 
 }
 .workflow{
@@ -29,4 +33,18 @@
 }
 .ant-layout-header{
     background-color: #F4F9FF !important;
+}
+.modal_design{
+    display: flex !important ;
+    justify-content: space-between !important ;
+    
+}
+.modal_input{
+    margin-bottom: 10px !important ;
+
+}
+.modal_label{
+    margin-bottom: 10px !important ;
+
+
 }

@@ -2,6 +2,7 @@
 import { Card, Col, Row } from 'antd';
 import React from "react";
 import '../Sidebar/sidebar';
+import '../Body/Body'
 import "antd/dist/antd.css";
 import { Layout } from "antd";
 import './CardMap'
@@ -25,9 +26,10 @@ const Content1 = (props:cardDetailsProps) => {
   }
 
   return (
-      
-<Layout style={{ margin: "30px 10px" }}>
-<Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+    // style={{ margin: "20px 20px" }} 
+<Layout >
+{/* gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} */}
+<Row >
 <Col className="gutter-row" span={6}>
   <div >
     <Card style={{ width: 290, height: 130 }} className="maincard">
@@ -46,7 +48,8 @@ const Content1 = (props:cardDetailsProps) => {
       </div>
       <div className={isActive ? 'card2' : 'card1'} onMouseLeave = {cardChange} >
         <p className='card2para' >{props.card2paragraph}</p>
-        <button className='card2btn' >view details</button>
+        <button className='card2btn1'>Delete</button>
+        <button className='card2btn2' >view details</button>
       </div>
       
     </Card>

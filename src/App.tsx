@@ -2,13 +2,13 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
-import Sidebar from './Component/Sidebar/sidebar'
+import Dashboard from './Component/Dashboard/dashboard'
 
 function App() {
   return (
     <div className="App">
      
-      <Sidebar/>
+      <Dashboard/>
 
     </div>
   );

@@ -1,15 +1,15 @@
  const cardDetails = [
-  {
+{
     id:1,
-    title: "GRN approval",
-    cardImage:'../images/icon1.png',
+    title: "Purchase Order",
+    cardImage:"./images/icon1.png",
     description: "WF_PO_PROCESSING_STD2",
     card1paragraph:"Leave application for admin approval",
     card2paragraph: "This workflow is to enable an employee raise his leave request and to get it approved from his"
-  },
-  {
+},
+{
     id:2,
-    title: "ASN approval",
+    title: "GRN approval",
     cardImage:"./images/icon2.png",
     description: "WF_PO_PROCESSING_STD2",
     card1paragraph:"Leave application for admin approval",
@@ -17,7 +17,7 @@
 },
 {
     id:3,
-    title: "Quotation approval",
+    title: "ASN approval",
     cardImage:"./images/icon3.png",
     description: "WF_PO_PROCESSING_STD2",
     card1paragraph:"Leave application for admin approval",
@@ -25,7 +25,7 @@
 },
 {
     id:4,
-    title: "GRN approval",
+    title: "Quotation approval",
     cardImage:"./images/icon4.png",
     description: "WF_PO_PROCESSING_STD2",
     card1paragraph:"Leave application for admin approval",
@@ -33,7 +33,7 @@
 },
 {
     id:5,
-    title: "GPurchase Order",
+    title: "Purchase Order",
     cardImage:"./images/icon1.png",
     description: "WF_PO_PROCESSING_STD2",
     card1paragraph:"Leave application for admin approval",
