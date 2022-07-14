@@ -15,15 +15,14 @@
     
 }
 .btn1{
-    height: 100%;
-    margin: 10px 30px 10px 0;
-    padding: 5px 20px 5px 20px;
+
     background-color:#2B78D4 !important;
     color:white !important;
     border-radius: 7px !important;
-    font:Montserrat;
-    /* font-weight: 600; */
-    font-size: 20px !important ;
+    font-size: 18px !important ;
+    margin-top: 10px;
+    margin-right: 40px;
+    height: 40px !important;
 }
 .search {
     margin-top: 10px;
@@ -35,16 +34,42 @@
     background-color: #F4F9FF !important;
 }
 .modal_design{
-    display: flex !important ;
-    justify-content: space-between !important ;
+    display: flex ;
+    justify-content: space-between ;
     
 }
-.modal_input{
-    margin-bottom: 10px !important ;
+.input_name, .input_desig{
+    margin-bottom: 20px ;
+    border: 0;
+    outline: 0;
+    font-weight: 700;
+    border-bottom : 1px solid ;
+    
 
 }
-.modal_label{
-    margin-bottom: 10px !important ;
-
+.modal_label p{
+   
+    width: 130px;
+    margin-bottom: 25px ;
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 20px ;
+    
+}
+.modal_footer{
+    margin-top: 15px;
+    display: flex;
+    justify-content: end;
+}
+.footer_save{
+    margin-right: 20px;
+    padding: 0 40px;
+    border-radius: 5px;
+}
+.footer_cancel{
+    padding: 0 40px;
+    color: #2B78D4;
+    font-weight: 600;
+    border-radius: 5px;
 
 }

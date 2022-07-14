@@ -3,12 +3,17 @@ import { Card, Col, Row } from 'antd';
 import React from "react";
 import '../Sidebar/sidebar';
 import '../Body/Body'
+import './content.css'
 import "antd/dist/antd.css";
-import { Layout } from "antd";
+import { Layout, Input } from "antd";
 import './CardMap'
 import { useState } from 'react';
+import { Modal } from 'antd';
+
+
 
 const { Content } = Layout;
+const { TextArea } = Input;
 
 type cardDetailsProps = {
   title: string
@@ -25,10 +30,28 @@ const Content1 = (props:cardDetailsProps) => {
     setIsActive(current => !current);
   }
 
+  const [isModalVisible,setIsModalVisible] = useState(false);
+  const [value, setValue] = useState('');
+
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+
+
   return (
-    // style={{ margin: "20px 20px" }} 
+    
 <Layout >
-{/* gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} */}
+
 <Row >
 <Col className="gutter-row" span={6}>
   <div >
@@ -49,7 +72,49 @@ const Content1 = (props:cardDetailsProps) => {
       <div className={isActive ? 'card2' : 'card1'} onMouseLeave = {cardChange} >
         <p className='card2para' >{props.card2paragraph}</p>
         <button className='card2btn1'>Delete</button>
-        <button className='card2btn2' >view details</button>
+        <button className='card2btn2'  onClick={showModal}  >view details</button>
+
+        <Modal title="Basic Modal" className='viewbutton' visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <Row>
+        <Col span={6}>
+          <img src={props.cardImage} className="cardImg" /> 
+        </Col>
+        <Col span={18}>
+          <h3 className="viewbutton_head">{props.title}</h3>
+          <p className="viewbutton_para">{props.description}</p>
+          <p className="viewbutton_secpara">{props.card1paragraph}</p>
+
+          
+        </Col>
+      </Row>
+      <Row className='second_row' >
+        <Col  className='label_details' span={8}>
+        <label className='label_details_name' >Employee name</label> 
+        <br></br>
+        <label className='label_details_desig' >Designation</label>
+        <br></br>
+        <label className='label_details_dt' >Employee details</label>
+          
+        </Col>
+        <Col span={16}>
+        
+          <input className='input_details_name'  ></input> 
+          <input className='input_details_name' ></input>
+  
+          <TextArea
+          className='input_details_name'
+              value={value}
+              onChange={e => setValue(e.target.value)}
+              placeholder="details"
+              autoSize={{ minRows: 3, maxRows: 5 }}
+           />
+        </Col>
+
+
+      </Row>
+        
+      </Modal>
+
       </div>
       
     </Card>

@@ -14,6 +14,10 @@ import type { UploadChangeParam } from 'antd/es/upload';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 
 
+// const { Header } = Layout;
+const { TextArea } = Input;
+
+
 // import Sidebar from '../Sidebar/sidebar';
 
 
@@ -40,14 +44,36 @@ const beforeUpload = (file: RcFile) => {
 function Navbar() {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [employeeName, setEmployeeName] = useState('');
+  const [empdesignation, setEmployeeDesignation] = useState('');
+  const [employeedetails, setEmployeeDetails] = useState('');
 
   const showModal = () =>{
     setIsModalVisible(true);
   }
 
-  const handleOk = () =>{
-    setIsModalVisible(false);
-  }
+  const handleOk = () => {
+    let payload =[{
+      name:employeeName,
+      designation:empdesignation,
+      employedetails:employeedetails
+    }]
+     console.log(payload);
+    //  useEffect(() => {
+    //   localStorage.setItem('items', JSON.stringify(payload));
+    // }, [payload]);
+    localStorage.setItem('Employee Name', employeeName);
+    localStorage.setItem('Employee Designation', empdesignation);
+    localStorage.setItem('Employee Details', employeedetails);
+    setEmployeeName('');
+    setEmployeeDesignation('');
+    setEmployeeDetails('');
+    setIsModalVisible(false); 
+  };
+
+  // const handleOk = () =>{
+  //   setIsModalVisible(false);
+  // }
 
   const handleCancel = () =>{
     setIsModalVisible(false);
@@ -79,6 +105,8 @@ function Navbar() {
     </div>
   );
 
+  const [value, setValue] = useState('');
+
 
 
 
@@ -91,7 +119,7 @@ function Navbar() {
       <Button className='btn1' onClick={showModal}  >create workflow</Button>
       
 
-          <Modal  title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+          <Modal  footer={null} title="Setup Employee" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
             
             <div className='modal_design' >
             <div>
@@ -108,22 +136,38 @@ function Navbar() {
 
             </div>
             <div className='modal_label' >
-                <label>Employee name</label>
-                
-                <label>Designation name</label>
-                
-                <label>Employee details</label>
+
+                   <p>Employee Name</p>
+                   <p>Designation</p>
+                   <p>Employee Details</p>
+                    
+
+                {/* <label className='label1' >Employee name</label>           
+                <label className='label1' >Designation name</label>
+                <label className='label1' >Employee details</label> */}
                 
 
             </div>
             <div className='modal_input' >
-            <input placeholder='enter name' ></input>
-            <input placeholder='designation' ></input>
-            <input ></input>
+
+            <input className='input_name'  ></input>
+            <input className='input_desig' ></input>
+            <TextArea
+              value={value}
+              onChange={e => setValue(e.target.value)}
+              placeholder="Controlled autosize"
+              autoSize={{ minRows: 3, maxRows: 5 }}
+            />
 
             </div>
+            
 
 
+            </div>
+            <div className='modal_footer' >
+
+                    <Button type="primary" className="footer_save" onClick={handleOk}>Save</Button>
+                    <Button className="footer_cancel" onClick={handleCancel}>Cancel</Button>
             </div>
 
            
