@@ -1,3 +1,11 @@
+
+
+.maincard{
+
+  border-radius: 15px;
+}
+
+
 .viewbutton_head{
     font-size: 16px;
     font-weight: 700;
@@ -49,20 +57,77 @@
 .ant-input{
     padding-left: 0 !important;
 } 
-/* .input_details_name:placeholder-shown{
+.ant-layout {
+  background:  #F4F9FF !important;
+  
+}
 
-    font-size: 14px;
-  
-    font-weight: 700;
-    border: 0;
-    outline: 0;
-  
-  } */
   
   .ant-modal-content{
-    border-radius: 20px;
+    
+    border-radius: 20px !important ;
   }
   .ant-modal-header{
     border-radius: 20px 20px 0 0;
 
   }
+  .ant-row{ 
+    width: 300px;
+    height: 150px;
+    border-radius: 15px;
+    padding: 0 !important;
+
+  }
+  .ant-layout{
+    margin-left: 38px;
+    margin-bottom: 30px;
+  }
+  
+  
+  
+  .cardImg{
+    margin-top: 10px;
+    
+  }
+ .cardTitile{
+  margin-top: 10px;
+  color:#002F68;
+  font-size:18px;
+  font-weight: 700;
+ }
+ .cardPara{
+  font-weight: 500;
+  color: #5C83B1;
+  font-size: 14px;
+
+ }
+ .cardSpan{
+  font-weight: 500;
+  color: #5C83B1;
+  font-size: 12px;
+
+ }
+
+
+.card2para{
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+.popupbtn{
+  margin-left: 100px;
+  margin-top: 20px;
+  background-color: #2B78D4;
+  color: white;
+  border-radius: 5px;
+  padding: 0 35px;
+
+}
+.popupdelbtn{
+  margin-left: 10px;
+  background-color: white;
+  color: #2B78D4;
+  border-radius: 5px;
+  padding: 0 30px;
+
+}

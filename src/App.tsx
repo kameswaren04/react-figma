@@ -2,7 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
-import Dashboard from './Component/Dashboard/dashboard'
+import Dashboard from "./Component/Dashboard/dashboard"
 
 function App() {
   return (

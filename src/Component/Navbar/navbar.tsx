@@ -5,7 +5,6 @@ import { Input , Button} from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import './Navbar.css'
 import { Modal } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
 
 import { Image } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
@@ -41,7 +40,8 @@ const beforeUpload = (file: RcFile) => {
 
 
 
-function Navbar() {
+function Navbar({refresh}:any) {
+
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [employeeName, setEmployeeName] = useState('');
@@ -53,29 +53,39 @@ function Navbar() {
   }
 
   const handleOk = () => {
-    let payload =[{
-      name:employeeName,
-      designation:empdesignation,
-      employedetails:employeedetails
-    }]
-     console.log(payload);
-    //  useEffect(() => {
-    //   localStorage.setItem('items', JSON.stringify(payload));
-    // }, [payload]);
-    localStorage.setItem('Employee Name', employeeName);
-    localStorage.setItem('Employee Designation', empdesignation);
-    localStorage.setItem('Employee Details', employeedetails);
+
+    let employeeDetail= JSON.parse(`${localStorage.getItem('employeeDetail') || '[]'}`);
+
+    //Generate Id from Data and Time
+    const date =new Date()
+    const generateId =date.getTime();
+
+    let payload: any ={
+      id: generateId,
+      title:employeeName,
+      // cardImage: employeeImage,
+      description:empdesignation,
+      card1paragraph:employeedetails,
+      card2paragraph: "This workflow is to enable an employee raise his leave request and to get it approved from his"
+    }
+    employeeDetail.push(payload);
+      //  console.log(payload);
+       localStorage.setItem('employeeDetail', JSON.stringify(employeeDetail));
+      
+      setEmployeeName('');
+      setEmployeeDesignation('');
+      setEmployeeDetails('');
+      // setEmployeeImage('');
+      setIsModalVisible(false); 
+      refresh();
+    };
+  
+
+  const handleCancel = () =>{
     setEmployeeName('');
     setEmployeeDesignation('');
     setEmployeeDetails('');
-    setIsModalVisible(false); 
-  };
-
-  // const handleOk = () =>{
-  //   setIsModalVisible(false);
-  // }
-
-  const handleCancel = () =>{
+    // setEmployeeImage('');
     setIsModalVisible(false);
   }
 
@@ -105,7 +115,23 @@ function Navbar() {
     </div>
   );
 
-  const [value, setValue] = useState('');
+  // const [value, setValue] = useState('');
+
+
+
+     //Search Cards
+     const [search, setNewSearch] = useState("");
+
+     const handleSearchChange = (event:any) => {
+         setNewSearch(event.target.value);
+     };
+ 
+     let employeeDetail= JSON.parse(`${localStorage.getItem('employeeDetail') || '[]'}`);
+     const filtered = !search
+                     ? employeeDetail
+                     : employeeDetail.filter((card:any) =>
+                         card.title.toLowerCase().includes(search.toLowerCase())
+                         );
 
 
 
@@ -114,8 +140,18 @@ function Navbar() {
     <div className='topnav' >
       
       <h2 className='workflow' >Workflows</h2>
-      <Input className='search' placeholder='search a workflow' 
+      <Input className='search' placeholder='search a workflow' onChange={handleSearchChange}
         prefix={<SearchOutlined />}></Input>
+
+          {filtered.map((card:any) => {
+                return (
+                //    <Content />
+                  console.log(card.title)
+                );
+              })}
+
+
+
       <Button className='btn1' onClick={showModal}  >create workflow</Button>
       
 
@@ -132,6 +168,8 @@ function Navbar() {
               beforeUpload={beforeUpload}
               onChange={handleChange} >
               {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+              {/* {imageUrl ? <img src={imageUrl} defaultValue={employeeImage} onChange={(value:any)=>setEmployeeImage(imageUrl)} alt="avatar" style={{ width: '100%' }} /> : uploadButton} */}
+
               </Upload>
 
             </div>
@@ -139,24 +177,20 @@ function Navbar() {
 
                    <p>Employee Name</p>
                    <p>Designation</p>
-                   <p>Employee Details</p>
-                    
-
-                {/* <label className='label1' >Employee name</label>           
-                <label className='label1' >Designation name</label>
-                <label className='label1' >Employee details</label> */}
-                
+                   <p>Employee Details</p>     
 
             </div>
             <div className='modal_input' >
 
-            <input className='input_name'  ></input>
-            <input className='input_desig' ></input>
+            <input className='input_name'  value={employeeName} onChange={(value:any)=>setEmployeeName(value.target.value)} ></input>
+            <input className='input_desig' value={empdesignation} onChange={(value:any)=>setEmployeeDesignation(value.target.value)} ></input>
             <TextArea
-              value={value}
-              onChange={e => setValue(e.target.value)}
+              value={employeedetails}
+              onChange={(value:any)=>setEmployeeDetails(value.target.value)}
+              // onChange={e => setValue(e.target.value)}
               placeholder="Controlled autosize"
               autoSize={{ minRows: 3, maxRows: 5 }}
+              
             />
 
             </div>
@@ -170,12 +204,7 @@ function Navbar() {
                     <Button className="footer_cancel" onClick={handleCancel}>Cancel</Button>
             </div>
 
-           
-            
-           
-
-            
-
+  
           </Modal>
           
 

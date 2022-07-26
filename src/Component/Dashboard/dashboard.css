@@ -1,0 +1,12 @@
+.body_content{
+    width: 95%;
+    height:100vh;
+}
+.cards{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    row-gap: 20px;
+    column-gap: 0px!important;
+    /* background-color: #F4F9FF !important; */
+}

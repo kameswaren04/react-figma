@@ -1,32 +1,68 @@
-import React from 'react'
-import Sidebar from '../Sidebar/sidebar'
-import Navbar from '../Navbar/Navbar'
-import Body from '../Body/Body'
+// import React from "react";
+import React , { useEffect, useState } from "react"; 
+import Sidebar from '../Sidebar/sidebar';
+import Navbar from '../Navbar/Navbar';
+
 import '../Navbar/Navbar.css'
 import '../Dashboard/dashboard.css'
 import '../Sidebar/sidebar.css'
 import { Layout } from 'antd'
+import Content1 from '../Cards/Content1';
 
 
+// const { Content } = Layout;
 
-function dashboard() {
+
+function Dashboard() {
+
+
+  const [cardData, setCardData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let employeeDetail= JSON.parse(`${localStorage.getItem('employeeDetail') || '[]'}`);
+    setCardData(employeeDetail);
+    setLoading(false);
+  },[loading])
+
+  const refresh = ()=>{
+    setLoading(true);
+  }
+
   return (
     <Layout>
       <Sidebar/>
-         <Layout>
-              <Navbar/ >       
-              <Body/>
+         <Layout className='body_content' >
+              <Navbar refresh={refresh} />   
+              <div className="cards" >
+        
+                    {cardData.map((card: any) => 
+                    
+                      
+                      <Content1
+                            
+                            id={card.id}
+                            title={card.title}
+                            cardImage={card.cardImage}
+                            description={card.description}
+                            card1paragraph={card.card1paragraph}
+                            card2paragraph={card.card2paragraph}
+                            refresh={refresh}
+                        />
+             
+               
+              
+            
+        )}
+    </div>
+
+              
          </Layout>
 
     </Layout>
    
-        
-        
-        
-    
-    
     
   )
 }
 
-export default dashboard
+export default Dashboard

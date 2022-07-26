@@ -22,10 +22,10 @@ function sidebar() {
     <Sider
      
      className="sidebar" >
-      <div className="logo" >
-       
+      <div className="logo" >      
         <img src={img1} />
       </div>
+
       <Menu className="middle" >
         <Menu.Item>
           <img src={img2} ></img>
