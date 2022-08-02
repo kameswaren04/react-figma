@@ -1,6 +1,8 @@
 .topnav{
     position: sticky;
     top: 0;
+    left: 5%;
+    margin-left: 20px;
     height: 70px;
     width: 100%;
     z-index: 999;
@@ -11,7 +13,7 @@
     
 
 }
-.workflow{
+.lefthead{
     margin-left: 20px;
     font-weight: 700;
     font-size: 32px !important;
@@ -33,11 +35,7 @@
     height: 40px !important;
     border-radius: 10px !important;
 }
-.ant-layout-header{
-    background-color: #F4F9FF !important;
-    
-    
-}
+
 .modal_design{
     display: flex ;
     justify-content: space-between ;

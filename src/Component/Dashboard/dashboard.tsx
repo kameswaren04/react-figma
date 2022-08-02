@@ -30,34 +30,40 @@ function Dashboard() {
   }
 
   return (
-    <Layout>
-      <Sidebar/>
-         <Layout className='body_content' >
-              <Navbar refresh={refresh} />   
-              <div className="cards" >
-        
-                    {cardData.map((card: any) => 
-                    
-                      
-                      <Content1
-                            
-                            id={card.id}
-                            title={card.title}
-                            cardImage={card.cardImage}
-                            description={card.description}
-                            card1paragraph={card.card1paragraph}
-                            card2paragraph={card.card2paragraph}
-                            refresh={refresh}
-                        />
-             
-               
-              
+    <Layout className="full_body" >
+      <div className="side_body" >
+          <Sidebar />
+      </div>
+      
+      <div className='body_content' >
+          <Navbar refresh={refresh} />   
+                      <div className="cards" >
             
-        )}
-    </div>
+                        {cardData.map((card: any) => 
+                                                 
+                          <Content1
+                                
+                                id={card.id}
+                                title={card.title}
+                                cardImage={card.cardImage}
+                                description={card.description}
+                                card1paragraph={card.card1paragraph}
+                                card2paragraph={card.card2paragraph}
+                                refresh={refresh}
+                            />
+                
+                            )}
+                      </div>
+
+
+
+          </div>
+      
+         {/* <Layout className='body_content' >
+             
 
               
-         </Layout>
+         </Layout> */}
 
     </Layout>
    
